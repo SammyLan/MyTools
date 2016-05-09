@@ -27,7 +27,7 @@
 @if not exist %LIB3rd_Bin%Debug mkdir %LIB3rd_Bin%Debug
 @if not exist %LIB3rd_Bin%Release mkdir %LIB3rd_Bin%Release
 
-@set ExternalDir=%CUR_DIR%..\
+@set ExternalDir=%CUR_DIR%..\..\External
 @set OPENSSL_BULID_DIR=%CUR_DIR%build\openssl\
 
 @call %1
