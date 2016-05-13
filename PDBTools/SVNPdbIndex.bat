@@ -16,9 +16,10 @@
 @if not exist %PDB_DIR% then goto error
 
 @call call %svnindexcmd% /source="%SRC_DIR%" /symbols="%PDB_DIR%" /debug
-
+@goto end
 :error
 @echo usage:
 @echo SVNPdbIndex source_dir pdb_dir
+:end
 @echo on
 @cmd
