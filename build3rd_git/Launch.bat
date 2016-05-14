@@ -1,35 +1,19 @@
 @setlocal enabledelayedexpansion
-
-@rem ≈‰÷√VS∞Ê±æ
-@set VS_VERSION=14
-@set CMAKE_DIR=D:\Program Files (x86)\CMake\bin
+@echo off
 
 @set CUR_DIR=%~dp0
-@set NASM_DIR=%CUR_DIR%nasm
-@set PATH=%NASM_DIR%;%path%;%CMAKE_DIR%
+
+@FOR /F %%f in ('dir /b "%CUR_DIR%*.env"') do (
+  FOR /F "eol=; tokens=1,2 delims==" %%i in (%CUR_DIR%%%f) do (
+  set VAR=%%i
+  set VAL=%%j
+  set !VAR!=!VAL!
+  )
+)
 
 @set VS_TOOL_DIR=!VS%VS_VERSION%0COMNTOOLS!..\..\
-@call "%VS_TOOL_DIR%VC\vcvarsall.bat" x86
+@call "!VS_TOOL_DIR!VC\vcvarsall.bat" x86
+@call %CUR_DIR%InitDir.bat
 
-@set LOGS_DIR=%CUR_DIR%Logs
-@if not exist %LOGS_DIR% mkdir %LOGS_DIR%
-
-@set BULID_DIR=%CUR_DIR%build\
-@if not exist %BULID_DIR% mkdir %BULID_DIR%
-
-@set LIB3rd=%CUR_DIR%externals\
-@set LIB3rd_Inc=%LIB3rd%include\
-@set LIB3rd_Lib=%LIB3rd%Lib
-@set LIB3rd_Bin=%LIB3rd%Bin
-@if not exist %LIB3rd% mkdir %LIB3rd%
-@if not exist %LIB3rd_Inc% mkdir %LIB3rd_Inc%
-@if not exist %LIB3rd_Lib%Debug mkdir %LIB3rd_Lib%Debug
-@if not exist %LIB3rd_Lib%Release mkdir %LIB3rd_Lib%Release
-@if not exist %LIB3rd_Bin%Debug mkdir %LIB3rd_Bin%Debug
-@if not exist %LIB3rd_Bin%Release mkdir %LIB3rd_Bin%Release
-
-@set ExternalDir=%CUR_DIR%..\..\External\
-@set OPENSSL_BULID_DIR=%CUR_DIR%build\openssl\
-
-@call %1
-@cmd
+@call %*
+@pause
