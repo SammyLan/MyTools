@@ -1,3 +1,4 @@
+@echo off
 @set path=%path%;C:\Program Files (x86)\Windows Kits\8.1\Debuggers\x86
 
 
@@ -8,5 +9,6 @@
 
 
 @set dump_file=%1
+@set log_file=%~dpn1.log
 
-@call windbg.exe -c  "kc;q" -loga "dump.log" -z %dump_file%
+@call windbg.exe -c  "kc;q" -loga "%log_file%" -z %dump_file%
