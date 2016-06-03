@@ -22,4 +22,4 @@
 @echo SVNPdbIndex source_dir pdb_dir
 :end
 @echo on
-@cmd
+@pause
