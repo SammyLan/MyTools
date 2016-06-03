@@ -14,7 +14,7 @@
 @if not exist %PDB_DIR% do set PDB_DIR=%ROOT_DIR%PDB
 @echo %PDB_DIR%
 @if exist %PDB_DIR% (
-	!symstorecmd! add  /f "%PDB_DIR%\*.*" /s "%PDB_Server%" /t "!PRODUCT_NAME!" /v "Build" /c "Dailybuild" /compress
+	!symstorecmd! add  /r /f "%PDB_DIR%\*.*" /s "%PDB_Server%" /t "!PRODUCT_NAME!" /v "Build" /c "Dailybuild" /compress
 )
 @echo on
-@cmd
+@rem cmd
