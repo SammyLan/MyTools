@@ -10,5 +10,8 @@
 
 @set dump_file=%1
 @set log_file=%~dpn1.log
+@set log_file_detail=%~dpn1_detal.log
 
 @call windbg.exe -c  "kc;q" -loga "%log_file%" -z %dump_file%
+
+@call windbg.exe -c  "kp;q" -loga "%log_file%" -z %log_file_detail%
