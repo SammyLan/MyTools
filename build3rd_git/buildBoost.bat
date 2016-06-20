@@ -1,3 +1,4 @@
+@echo Build BOOST
 @set BOOST_DIR=%ExternalDir%boost\
 @cd %BOOST_DIR%
 @call %BOOST_DIR%bootstrap.bat >%LOGS_DIR%\buildBoost.log
