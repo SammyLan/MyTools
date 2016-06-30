@@ -15,7 +15,7 @@
 @if not exist %out_dir% mkdir %out_dir%
 @7z x -y %file_path% -o%out_dir%
 
-@rem call UploadPDB.bat %out_dir%
+@call %ROOT_DIR%UploadPDB.bat %out_dir%
 
 @pause
 @rmdir /S /Q %out_dir%
