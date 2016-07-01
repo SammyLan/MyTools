@@ -7,3 +7,7 @@
 *.suo
 *.aps
 Debug
+/MyWorkspace/external
+/PDBTools/BakPDB/weiyunPDB_3.5.0.1673(20160601_201821)/*.pdb
+/PDBTools/BakPDB/*.7z
+/PDBTools/BakPDB/*.exe
